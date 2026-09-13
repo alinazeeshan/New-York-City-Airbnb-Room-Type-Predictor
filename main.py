@@ -45,7 +45,7 @@ def greet():
 
 @app.post('/predict')
 def predict(features: Features):
-    row = pd.DataFrame([features.dict()], columns=COLUMNS)
+    row = pd.DataFrame([features.model_dump()], columns=COLUMNS)
     prediction  = model.predict(row)
     probability = model.predict_proba(row)
 
